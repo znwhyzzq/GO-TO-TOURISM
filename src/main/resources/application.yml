@@ -6,6 +6,18 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: localhost
+    password: guest
+    username: guest
+    port: 5672
+    listener:
+      simple:
+        queues:
+          - mingyue-queue
+        default-requeue-rejected: false
+    exchange: mingyue-exchange
+    routing-key: mingyue-routing-key
 
 
   # Redis Configuration
@@ -19,7 +31,7 @@ spring:
   mail:
     host: smtp.qq.com
     username: 2514765163@qq.com
-    password: upycfncokqngecha
+    password:
     default-encoding: utf-8
     port: 587
     properties:
@@ -28,6 +40,7 @@ spring:
       mail.smtp.timeout: 5000
       mail.smtp.writetimeout: 5000
       mail.smtp.starttls.enabl: true
+
 
 
 # 配置mybatis 引入·mybatis-plus则失效
